@@ -1,0 +1,19 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: beige;
+  min-height: 200vh;
+}
+header {
+  height: 95vh;
+  background-image: url("https://unsplash.it/1080");
+  background-position-y: bottom;
+  background-size: cover;
+  background-attachment: fixed;
+
+  clip-path: circle(300vh at 50% -206vh);
+}

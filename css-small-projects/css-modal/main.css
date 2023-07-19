@@ -1,0 +1,96 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  background-image: url("https://unsplash.it/1080");
+  background-size: cover;
+  background-position: center center;
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+label {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.btn {
+  padding: 1.5rem 3.5rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: darkorange;
+  border: 3px solid darkorange;
+  border-radius: 3px;
+  cursor: pointer;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  background-color: darkorange;
+  color: white;
+  box-shadow: 6px 6px 18px rgba(0, 0, 0, 0.4);
+}
+.btn:active {
+  filter: brightness(75%);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+.modal {
+  display: none;
+  position: absolute;
+  width: 70vw;
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 0 0 20px 100vw rgba(0, 0, 0, 0.65);
+}
+
+.close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: crimson;
+  transform: scaleX(1.2);
+}
+.modal p,
+.modal h1 {
+  padding: 2rem;
+  text-align: center;
+  border-bottom: 1px solid #bbb;
+}
+
+.modal-btn {
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  margin: 2rem auto;
+  display: block;
+  width: fit-content;
+}
+input:checked ~ .modal {
+  display: block;
+  animation: modal 0.4s forwards;
+}
+input {
+  display: none;
+}
+
+@keyframes modal {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

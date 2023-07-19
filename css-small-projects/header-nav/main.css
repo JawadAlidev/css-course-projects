@@ -1,0 +1,153 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-size: 1.25rem;
+  font-family: sans-serif;
+}
+header {
+  height: 90vh;
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+
+  background-image: linear-gradient(132deg, #f4d03f 0%, #16a085 100%),
+    url("https://unsplash.it/1080");
+
+  background-size: cover;
+  background-position: center center;
+  background-blend-mode: multiply;
+
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 90vh;
+  width: 100vw;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav::before {
+  content: "";
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  background-image: radial-gradient(#f4d03f 0%, #16a085 100%);
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  transition: all 0.5s ease-out;
+}
+
+input:checked ~ nav::before {
+  transform: scale(50);
+}
+
+@media (max-width: 500px) {
+  input:checked ~ nav::before {
+    transform: scale(25);
+  }
+}
+
+label {
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  background-color: #fff;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 15px 0;
+  cursor: pointer;
+}
+
+label span {
+  width: 30px;
+  height: 2px;
+  background-color: #444;
+  display: inline-block;
+  transition: all 0.3s;
+}
+
+input:checked ~ nav label {
+  justify-content: center;
+}
+input:checked ~ nav label span {
+  position: absolute;
+}
+
+input:checked ~ nav label span:nth-child(2) {
+  display: none;
+}
+input:checked ~ nav label span:nth-child(1) {
+  transform: rotate(45deg);
+}
+input:checked ~ nav label span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+nav ul {
+  list-style: none;
+  z-index: 2;
+  display: none;
+}
+input:checked ~ nav ul {
+  display: block;
+  opacity: 0;
+  transform: translateX(-10vw);
+
+  animation: slide-right 0.3s 0.5s forwards;
+}
+
+@keyframes slide-right {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+nav li + li {
+  margin-top: 0.75rem;
+}
+nav li {
+  padding: 0.5rem 3rem;
+  background-image: linear-gradient(
+    110deg,
+    transparent,
+    transparent 20%,
+    #16a085 20%,
+    #16a085 80%,
+    transparent 80%
+  );
+  background-size: 1000%;
+  transition: all 0.3s ease-in;
+}
+nav li:hover {
+  background-size: 100%;
+}
+nav li a {
+  text-decoration: none;
+  color: #fff;
+}
+input {
+  display: none;
+}
